@@ -46,8 +46,8 @@ prediction = model.predict(test_images) #all 10 images
 for i in range(5):
     plt.grid(False)
     plt.imshow(test_images[i], cmap=plt.cm.binary)
-    plt.xlabel("Actual: " + class_names[test_labels[i]])
-    plt.title("prediction" + prediction[i])
+    plt.xlabel("Actual: " + class_names[test_labels[i]]) #actual
+    plt.title("predicted: " + class_names[np.argmax(prediction[i])]) #predictions
     plt.show()
 
 #model gives name based on the highest probability of the 0-9 values to identify what clothing article an image is
