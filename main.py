@@ -24,8 +24,8 @@ plt.show()
 #each image of clothing is made up of 28x28 pixels(28 arrays of 28 pixels, with each array value being between 0 and 1 due to earlier scaling down code)
 
 model = keras.Sequential([
-    keras.layers.Flatten(input_shape=(28,28)), #flatten data into one array of 784 array to pass to neurons
-    keras.layers.Dense(128, activation="relu"), #neurons are connected to others in hidden network
+    keras.layers.Flatten(input_shape=(28,28)), #flatten data into one array of length 784 to pass to neurons
+    keras.layers.Dense(128, activation="relu"), # 128 neurons are connected in a hidden network layer
     keras.layers.Dense(10, activation="softmax") #output layer, activation softmax: will pick probabilities for each 0-9 value for a piece of clothing between 0 to 1
 ])
 
@@ -47,7 +47,7 @@ for i in range(5):
     plt.grid(False)
     plt.imshow(test_images[i], cmap=plt.cm.binary)
     plt.xlabel("Actual: " + class_names[test_labels[i]]) #actual
-    plt.title("predicted: " + class_names[np.argmax(prediction[i])]) #predictions
+    plt.title("predicted: " + class_names[np.argmax(prediction[i])]) #predictions, argmax gives the prediction based on the highest probability
     plt.show()
 
 #model gives name based on the highest probability of the 0-9 values to identify what clothing article an image is
